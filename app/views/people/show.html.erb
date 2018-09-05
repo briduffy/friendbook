@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @person.first_name %>
+<p id="notice" class=<%= notice ? 'success': ''%>>
+  <%= notice %>
 </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @person.last_name %>
-</p>
+<div class="ui card">
 
-<p>
-  <strong>Avatar:</strong>
-  <%= @person.avatar %>
-</p>
+  <div class="image">
+    <img
+      src="https://robohash.org/<%= @person.get_avatar %>?set=set4"
+      alt="avatar"
+    />
+  </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @person.phone %>
-</p>
+  <div class="content">
+    <p class="header">
+      <%= @person.full_name %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
+    <div class="meta">
+      <%= @person.phone %>
+    </div>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+    <div class="description">
+      <%= @person.email %>
+    </div>
+  </div>
+
+  <div class="extra content">
+    <%= link_to 'Edit', edit_person_path(@person) %> |
+    <%= link_to 'Back', people_path %>
+  </div>
+</div>
